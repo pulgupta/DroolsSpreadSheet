@@ -1,3 +1,40 @@
 micronaut:
   application:
     name: drools-mn
+
+auth:
+  rules:
+    -
+      condition:
+        statuses:
+          - draft
+        roles:
+          - ANY
+      action:
+        permissions:
+          - EDIT
+          - VIEW
+    -
+      condition:
+        statuses:
+          - pending
+          - review
+        roles:
+          - teller
+          - cashier
+      action:
+        permissions:
+          - EDIT
+          - VIEW
+          - SUBMIT
+    -
+      condition:
+        statuses:
+          - submitted
+        roles:
+          - admin
+          - fulfilment
+      action:
+        permissions:
+          - APPROVE
+          - REJECT
