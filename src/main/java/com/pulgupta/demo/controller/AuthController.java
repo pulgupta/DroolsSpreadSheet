@@ -1,6 +1,7 @@
 package com.pulgupta.demo.controller;
 
 import com.pulgupta.demo.model.AuthRequest;
+import com.pulgupta.demo.model.AuthRequestv2;
 import com.pulgupta.demo.model.AuthResponse;
 import com.pulgupta.demo.service.AuthService;
 import io.micronaut.http.MediaType;
@@ -17,7 +18,12 @@ public class AuthController {
     AuthService service;
 
     @Post(produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
-    public AuthResponse getAuthRules(@Body AuthRequest request) {
-        return service.getAuthRules(request);
+    public AuthResponse getAuthRulesUsingDrools(@Body AuthRequest request) {
+        return service.getAuthRulesUsingDrools(request);
+    }
+
+    @Post(value ="/without-drools", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
+    public AuthResponse getAuthRulesWithoutUsingDrools(@Body AuthRequestv2 request) {
+        return service.getAuthRulesWithoutUsingDrools(request);
     }
 }
