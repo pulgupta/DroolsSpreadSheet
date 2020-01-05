@@ -3,16 +3,16 @@ package com.pulgupta.demo.model;
 import java.util.List;
 
 public class Action {
-    private List<String> permissions;
+    private List<Permission> permissions;
 
     public Action() {
     }
 
-    public List<String> getPermissions() {
+    public List<Permission> getPermissions() {
         return permissions;
     }
 
-    public void setPermissions(List<String> permissions) {
+    public void setPermissions(List<Permission> permissions) {
         this.permissions = permissions;
     }
 }

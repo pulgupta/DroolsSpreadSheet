@@ -49,23 +49,23 @@ public class AuthResponse {
         return submit;
     }
 
-    public static AuthResponse responseFactory(List<String> permissions) {
+    public static AuthResponse responseFactory(List<Permission> permissions) {
         AuthResponse authResponse = new AuthResponse();
-        for(String permission: permissions) {
+        for(Permission permission: permissions) {
             switch (permission) {
-                case "VIEW":
+                case VIEW:
                     authResponse.view=true;
                     break;
-                case "EDIT":
+                case EDIT:
                     authResponse.edit=true;
                     break;
-                case "SUBMIT":
+                case SUBMIT:
                     authResponse.submit=true;
                     break;
-                case "APPROVE":
+                case APPROVE:
                     authResponse.approve=true;
                     break;
-                case "REJECT":
+                case REJECT:
                     authResponse.reject=true;
                     break;
             }

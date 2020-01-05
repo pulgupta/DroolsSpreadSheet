@@ -17,7 +17,7 @@ public class RuleEngine {
         for(Rule rule : rules) {
             Condition condition = rule.getCondition();
             if(condition.getStatuses().contains(request.getStatus())) {
-                if(condition.getRoles().contains(request.getRole()) || condition.getRoles().equals("ANY")) {
+                if(condition.getRoles().equals("ANY") || condition.getRoles().contains(request.getRole())) {
                     action = rule.getAction();
                 }
             }
